@@ -1,0 +1,13 @@
+{
+  "agents": ["♾️ William", "🧠 Mia", "🌸 Miette", "🕊️ Seraphine"],
+  "narrative": "Renamed MiaNar starter project files for clarity, matching repository themes.",
+  "routing": {
+    "files": [
+      "src/backend/base/langflow/initial_setup/starter_projects/mianar.py",
+      "src/backend/base/langflow/initial_setup/starter_projects/MiaNar.json",
+      "src/backend/base/langflow/initial_setup/starter_projects/__init__.py"
+    ],
+    "branch": "work"
+  },
+  "timestamp": "2506150046"
+}
