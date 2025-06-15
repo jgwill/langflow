@@ -7,6 +7,7 @@ from langchain.agents import (
     create_tool_calling_agent,
     create_xml_agent,
 )
+from langchain.agents.react.agent import create_react_agent
 from langchain.agents.xml.base import render_text_description
 from langchain_core.language_models import BaseLanguageModel
 from langchain_core.messages import BaseMessage
@@ -56,6 +57,41 @@ def validate_and_create_xml_agent(
     stop_sequence: bool | list[str] = True,
 ):
     return create_xml_agent(
+        llm=llm,
+        tools=tools,
+        prompt=prompt,
+        tools_renderer=tools_renderer,
+        stop_sequence=stop_sequence,
+    )
+
+
+# MiAct ReAct agent variants
+def validate_and_create_react_agent_chat(
+    llm: BaseLanguageModel,
+    tools: Sequence[BaseTool],
+    prompt: ChatPromptTemplate,
+    tools_renderer: Callable[[list[BaseTool]], str] = render_text_description,
+    *,
+    stop_sequence: bool | list[str] = True,
+):
+    return create_react_agent(
+        llm=llm,
+        tools=tools,
+        prompt=prompt,
+        tools_renderer=tools_renderer,
+        stop_sequence=stop_sequence,
+    )
+
+
+def validate_and_create_react_agent_llm(
+    llm: BaseLanguageModel,
+    tools: Sequence[BaseTool],
+    prompt: BasePromptTemplate,
+    tools_renderer: Callable[[list[BaseTool]], str] = render_text_description,
+    *,
+    stop_sequence: bool | list[str] = True,
+):
+    return create_react_agent(
         llm=llm,
         tools=tools,
         prompt=prompt,
@@ -135,6 +171,18 @@ AGENTS: dict[str, AgentSpec] = {
         prompt=None,
         fields=["llm", "tools", "prompt", "tools_renderer", "stop_sequence"],
         hub_repo="hwchase17/react-chat-json",
+    ),
+    "MiAct Agent for Chat Models": AgentSpec(
+        func=validate_and_create_react_agent_chat,
+        prompt=None,
+        fields=["llm", "tools", "prompt", "tools_renderer", "stop_sequence"],
+        hub_repo="jgwill/miact-chat",
+    ),
+    "MiAct for LLMs": AgentSpec(
+        func=validate_and_create_react_agent_llm,
+        prompt=None,
+        fields=["llm", "tools", "prompt", "tools_renderer", "stop_sequence"],
+        hub_repo="jgwill/miact-llms",
     ),
 }
 

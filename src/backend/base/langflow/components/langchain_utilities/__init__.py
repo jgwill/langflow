@@ -24,6 +24,10 @@ from .tool_calling import ToolCallingAgentComponent
 from .vector_store_info import VectorStoreInfoComponent
 from .vector_store_router import VectorStoreRouterAgentComponent
 from .xml_agent import XMLAgentComponent
+from .miact import (
+    MiActAgentForChatModelsComponent,
+    MiActAgentForLLMsComponent,
+)
 
 __all__ = [
     "CSVAgentComponent",
@@ -52,4 +56,6 @@ __all__ = [
     "VectorStoreInfoComponent",
     "VectorStoreRouterAgentComponent",
     "XMLAgentComponent",
+    "MiActAgentForChatModelsComponent",
+    "MiActAgentForLLMsComponent",
 ]
