@@ -16,10 +16,19 @@ if [ ! -f .env ]; then
     cp .env.example .env
 fi
 
-# Install dependencies and build frontend
+# Install backend dependencies
 make install_backend
-make install_frontend
-make build_frontend
+
+# Ensure frontend dependencies are installed
+if [ ! -d src/frontend/node_modules ]; then
+    echo "Installing frontend dependencies"
+    make install_frontend
+fi
+
+# Build frontend with explicit config path to avoid path issues
+cd src/frontend
+CI="" npx vite build --config vite.config.mts || { echo "Frontend build failed"; exit 1; }
+cd -
 
 # Run backend and frontend concurrently
 make backend &
