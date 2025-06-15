@@ -1,0 +1,12 @@
+{
+  "agents": ["♾️ William", "🧠 Mia", "🌸 Miette", "🕊️ Seraphine", "⚡ Jerry", "🎸 JamAI"],
+  "narrative": "Refined dev_start script to check npm dependencies and build frontend with explicit config path, avoiding path errors during vite build.",
+  "routing": {
+    "files": ["scripts/dev_start.sh"],
+    "branch": "work"
+  },
+  "timestamp": "2506151526",
+  "purpose": "Ensure developers can successfully build and run MiAct agents locally.",
+  "scene": "Script verifies node modules then builds frontend using vite before launching both servers.",
+  "user_input": "Keep advancing the work and ensure to create us a bash script that will enable us to build and launch our development server for testing this feature.\n\ncreate STORY.md where you will tell the story of what is possible with that feature.  publish that key into the space using tushell"
+}

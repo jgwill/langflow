@@ -1,0 +1,9 @@
+{
+  "agents": ["♾️ William", "🧠 Mia", "🌸 Miette", "🕊️ Seraphine", "⚡ Jerry", "🎸 JamAI"],
+  "narrative": "Created MiAct agent components duplicating ReAct logic with new Langsmith prompt references.",
+  "routes": ["src/backend/base/langflow/components/langchain_utilities/miact.py", "src/backend/base/langflow/base/agents/utils.py"],
+  "timestamp": "2506151228",
+  "session": "work",
+  "purpose": "Introduce custom MiAct agents for chat models and LLMs using ReAct strategy.",
+  "scene": "New components extend Langflow agent capabilities for custom prompting." 
+}
